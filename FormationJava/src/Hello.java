@@ -1,5 +1,8 @@
 import java.util.Random;
 
+import com.m2i.formation.geometry.*;
+import com.m2i.formation.media.*;
+
 public class Hello {
 	
 	/**
@@ -203,6 +206,55 @@ public class Hello {
 		display(inverse(tab));
 		display(remove2(tab, 2));
 		display(insert2(tab, 2,99));
+		
+		Book b = new Book();
+		Publisher editeur =  new Publisher();
+		Author auteur1 = new Author();
+		Author auteur2 = new Author();
+		
+		b.setTitle("Java");
+		b.setId(12345);
+		b.setIsbn("ZOR123");
+		b.setLang("fr-FR");
+		b.setNbPage(125);
+		b.setPrice(12.6);
+		
+		editeur.setName("Nathan");
+		editeur.setSiret("ddd222");
+		
+		b.setPublisher(editeur);
+		
+		auteur1.setFirstName("Roger");
+		auteur1.setLastName("Hanin");
+		
+		auteur2.setFirstName("Toto");
+		auteur2.setLastName("Lehero");
+		
+		b.addAuthor(auteur1);
+		b.addAuthor(auteur2);
+	
+		/* System.out.println(b.getTitle());
+		System.out.println(b.getId());
+		System.out.println(b.getIsbn());
+		System.out.println(b.getLang());
+		System.out.println(b.getNbPage());
+		System.out.println(b.getPrice());
+		System.out.println(b.getPublisher().getName());
+		System.out.println(b.getPublisher().getSiret());
+		*/
+		
+		Counter c1 = new Counter();
+		System.out.println(c1.increment());
+		System.out.println(c1.increment());
+		System.out.println(c1.increment());
+		
+		Counter c2 = new Counter();
+		System.out.println(c2.increment());
+		System.out.println(c2.increment());
+		System.out.println(c2.increment());
+		
+		b.setBookCategory(BookCategory.Computer);
+		
 	}
 
 }
