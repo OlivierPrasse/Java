@@ -207,10 +207,16 @@ public class Hello {
 		display(remove2(tab, 2));
 		display(insert2(tab, 2,99));
 		
+		
 		Book b = new Book();
 		Publisher editeur =  new Publisher();
 		Author auteur1 = new Author();
 		Author auteur2 = new Author();
+		
+		try{
+		IMedia b2 = new Book(); // compile car book est un media
+		Book b3 = (Book) b2; // on catse b2
+		int nbPage = ((Book)b2).getNbPage();
 		
 		b.setTitle("Java");
 		b.setId(12345);
@@ -232,7 +238,14 @@ public class Hello {
 		
 		b.addAuthor(auteur1);
 		b.addAuthor(auteur2);
-	
+		
+		Media m = new Book();
+		m.setPrice(10);
+		System.out.println(m.getVATPrice());
+		}catch (MediaException e){
+			e.printStackTrace();
+		}
+		
 		/* System.out.println(b.getTitle());
 		System.out.println(b.getId());
 		System.out.println(b.getIsbn());
